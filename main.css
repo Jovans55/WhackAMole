@@ -15,7 +15,7 @@ body {
 nav{
     text-align: center;
     position: relative;
-    top: 4vw;
+    top: 3vw;
     font-size: 2rem;
 }
 
@@ -23,7 +23,7 @@ div{
     display: flex;
     justify-content: center;
     margin: auto;
-    margin-top: 6vw;
+    margin-top: 5vw;
     width: auto;
 }
 

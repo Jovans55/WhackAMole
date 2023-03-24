@@ -17,8 +17,8 @@ let newScore = 0
 let mover;
 //used to save old number so no repeats and alien doesn't move each click
 let oldMover;
-//sets the time left for the user to get an alien
-let timeLeft = 5;
+//sets the time left at the start of the game
+let timeLeft = 60;
 
 // sets and creates invasion mode
 let invasion = false;
@@ -31,7 +31,7 @@ for (let i = 0; i < images.length; i++) {
       // An if statement checks if the score is 100 and tells the player they won!
       if (newScore >=100) {
         score.textContent = 'YOU WON!'
-        score.style.fontSize = '100px'
+        score.style.fontSize = '4rem'
         document.body.style.backgroundColor = 'gold';
         score.append(reload);
         reload.textContent = 'Play Again?'
@@ -44,7 +44,6 @@ for (let i = 0; i < images.length; i++) {
           newScore ++
           score.textContent = newScore
           moveAlien()
-          timeLeft = 5;
           // invasion mode makes aliens swarm the user when one is clicked
         } else if (images[i].getAttribute("src") === "images/alienS.png" && invasion){
             console.log("you found the alien"); //for testing
@@ -53,8 +52,6 @@ for (let i = 0; i < images.length; i++) {
             score.textContent = newScore
             moveAlien()
             moveAlien()
-            // TIME IS LESS IN INVASION MODE
-            timeLeft = 3;
         }
     }); 
 }
@@ -73,13 +70,13 @@ function moveAlien() {
     }
 }
 
-//function that counts down if user doesn't get an alien they lose;
+//function that counts down, if the user doesn't reach 100points in time they lose;
 const countdownTimer = setInterval(() => {
-  timer.textContent = `You have ${timeLeft} seconds to catch one`
+  timer.textContent = `You have ${timeLeft} seconds to get 100 aliens!`
   timeLeft--;
   if (timeLeft < 0) {
     score.textContent = 'YOU FAILED'
-    score.style.fontSize = '100px'
+    score.style.fontSize = '4rem'
     document.body.style.backgroundColor = 'gray';
     score.append(reload);
     reload.textContent = 'Retry?'
